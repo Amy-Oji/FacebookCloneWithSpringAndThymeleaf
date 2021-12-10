@@ -22,12 +22,16 @@ import java.util.List;
 @Controller
 public class CommentController {
 
-    @Autowired
     CommentService commentService;
-    @Autowired
     PostService postService;
-    @Autowired
     PostRepository postRepository;
+
+    @Autowired
+    public CommentController(CommentService commentService, PostService postService, PostRepository postRepository) {
+        this.commentService = commentService;
+        this.postService = postService;
+        this.postRepository = postRepository;
+    }
 
     @GetMapping("/editcomment")
    public String getEditCommentPage(Model model, HttpSession httpSession, HttpServletRequest request, Long commentId) {

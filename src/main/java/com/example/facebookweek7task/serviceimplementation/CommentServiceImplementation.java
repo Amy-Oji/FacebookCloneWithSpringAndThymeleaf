@@ -14,25 +14,15 @@ import java.util.List;
 @Service
 public class CommentServiceImplementation implements CommentService {
 
-    @Autowired
+
     CommentRepository commentRepository;
-    @Autowired
     PostRepository postRepository;
 
-
-//    /**
-//     * Method to save a comment to the database
-//     * @param user the user making the comment
-//     * @param comment the comment made
-//     * @param postId the id of the post
-//     */
-//    @Override
-//    public void addComment(User user, Comment comment, Long postId) {
-//        Post post = postRepository.findByPostId(postId);
-//        comment.setUser(user);
-//        comment.setPost(post);
-//        commentRepository.save(comment);
-//    }
+    @Autowired
+    public CommentServiceImplementation(CommentRepository commentRepository, PostRepository postRepository) {
+        this.commentRepository = commentRepository;
+        this.postRepository = postRepository;
+    }
 
     /**
      * Method to save a comment

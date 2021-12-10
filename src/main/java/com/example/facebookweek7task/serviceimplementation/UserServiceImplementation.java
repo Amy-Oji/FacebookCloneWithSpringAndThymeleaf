@@ -12,8 +12,13 @@ import java.util.Optional;
 @Service
 public class UserServiceImplementation implements UserService {
 
-    @Autowired
+
     UserRepository userRepository;
+
+    @Autowired
+    public UserServiceImplementation(UserRepository userRepository) {
+        this.userRepository = userRepository;
+    }
 
     /**
      * Method to register a user and save the details to the database

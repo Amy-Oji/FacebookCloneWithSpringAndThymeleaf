@@ -14,8 +14,13 @@ import java.io.IOException;
 
 @Controller
 public class LikeController {
-    @Autowired
+
     LikeService likeService;
+
+    @Autowired
+    public LikeController(LikeService likeService) {
+        this.likeService = likeService;
+    }
 
     @PostMapping("/like_post")
     public @ResponseBody String likePost(HttpServletRequest request, HttpServletResponse response, HttpSession session) throws IOException {

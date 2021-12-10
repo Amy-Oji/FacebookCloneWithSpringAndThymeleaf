@@ -19,14 +19,17 @@ import java.util.List;
 @Service
 public class PostServiceImplementation implements PostService {
 
-    @Autowired
+
     PostRepository postRepository;
-
-    @Autowired
     LikeRepository likeRepository;
+    CommentRepository commentRepository;
 
     @Autowired
-    CommentRepository commentRepository;
+    public PostServiceImplementation(PostRepository postRepository, LikeRepository likeRepository, CommentRepository commentRepository) {
+        this.postRepository = postRepository;
+        this.likeRepository = likeRepository;
+        this.commentRepository = commentRepository;
+    }
 
     /**
      * Method to save a post made by a user to the database

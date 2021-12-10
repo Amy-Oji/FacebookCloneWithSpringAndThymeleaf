@@ -25,14 +25,17 @@ import java.util.List;
 
 @Controller
 public class PostController {
-    @Autowired
+
     PostService postService;
-
-    @Autowired
     CommentService commentService;
+    LikeService likeService;
 
     @Autowired
-    LikeService likeService;
+    public PostController(PostService postService, CommentService commentService, LikeService likeService) {
+        this.postService = postService;
+        this.commentService = commentService;
+        this.likeService = likeService;
+    }
 
     /**
      * Method to get the home page

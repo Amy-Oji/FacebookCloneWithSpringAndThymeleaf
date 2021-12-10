@@ -13,10 +13,14 @@ import org.springframework.transaction.annotation.Transactional;
 @Service
 public class LikeServiceImplementation implements LikeService {
 
-    @Autowired
     LikeRepository likeRepository;
-    @Autowired
     PostRepository postRepository;
+
+    @Autowired
+    public LikeServiceImplementation(LikeRepository likeRepository, PostRepository postRepository) {
+        this.likeRepository = likeRepository;
+        this.postRepository = postRepository;
+    }
 
     /**
      * Method to like and unlike a post
